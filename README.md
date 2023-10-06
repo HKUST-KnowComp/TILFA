@@ -70,9 +70,9 @@ You can install all requirements with the command
 pip install -r requirements.txt
 ```
 
-#Run TILFA Framework
+##Run TILFA Framework
 
-## Step 1: Training
+### Step 1: Training
 - training examples can be found in ./run.sh
 #### pure text
 ```angular2html
@@ -158,7 +158,7 @@ python3 main_multimodality_layoutlmv3_alltrain.py
 --cross_attn_type=-1
 ```
 
-## Step 2: Predict
+### Step 2: Predict
 predict_test_origin_text.py is for pure text
 predict_test_origin_image.py is for pure image
 predict_test_origin_multi.py is for original multimodality
@@ -168,14 +168,14 @@ predict_test_layout_multi.py is for layout multimodality
 You should change the model name in the code to the one you want to predict with.
 Other parameters are consistent with the training part.
 
-## Step 3: Post Process
+### Step 3: Post Process
 
 You should change the file name in the code to the one you want to process.
 ```angular2html
 python3 final_submission.py
 ```
 
-## Step 4: Evaluate And Get The Score
+### Step 4: Evaluate And Get The Score
 
 If you want to get the score across topic:
 ```angular2html
@@ -190,9 +190,9 @@ python3 get_evaluation_within_topic.py
 --topic=choose one in [gun_control, abortion]
 ```
 
-#Others
+##Others
 
-## Address Data Imbalance
+### Address Data Imbalance
 - code used to address data imbalance is in path ./data/TranslateDemo 
 - a stands for abortion, g stands for gun_control
 - s stands for stance, p stands for persuasiveness
@@ -202,7 +202,7 @@ cd data/TranslateDemo
 python3 TranslateDemo_a_s.py
 ```
 
-## Data Augmentation
+### Data Augmentation
 - code used to do data augmentation is in path ./data/wordnet_augmentation
 
 ```angular2html
