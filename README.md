@@ -70,7 +70,7 @@ You can install all requirements with the command
 pip install -r requirements.txt
 ```
 
-##Run TILFA Framework
+## Run TILFA Framework
 
 ### Step 1: Training
 - training examples can be found in ./run.sh
@@ -190,7 +190,7 @@ python3 get_evaluation_within_topic.py
 --topic=choose one in [gun_control, abortion]
 ```
 
-##Others
+## Others
 
 ### Address Data Imbalance
 - code used to address data imbalance is in path ./data/TranslateDemo 
