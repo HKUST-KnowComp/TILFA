@@ -206,7 +206,8 @@ if __name__ == '__main__':
 
     # create experiment dirs
     exp_name = get_exp_name_nofold(args)
-    args.exp_dir = f"/home/data/zwanggy/2023/image_arg_experiments/{exp_name}"
+    old_path = args.exp_dir
+    args.exp_dir = f"{old_path}/{exp_name}"
     make_dir(args.exp_dir)
     sys.stdout = Logger(os.path.join(args.exp_dir, "train.log"), sys.stdout)
     sys.stderr = Logger(os.path.join(args.exp_dir, "error.log"), sys.stderr)
@@ -230,7 +231,7 @@ if __name__ == '__main__':
     for dataset_name in ['gun_control', 'abortion']:
         print(f"\n##################### {dataset_name} ##########################\n")
 
-        args.exp_dir = f"/home/data/zwanggy/2023/image_arg_experiments/{exp_name}/{dataset_name}"
+        args.exp_dir = f"{old_path}/{exp_name}/{dataset_name}"
         make_dir(args.exp_dir)
 
         df = pd.read_csv(os.path.join(args.data_dir, dataset_name + '_train.csv'), index_col=0)

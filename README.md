@@ -70,8 +70,147 @@ You can install all requirements with the command
 pip install -r requirements.txt
 ```
 
+#Run TILFA Framework
+
+## Step 1: Training
+- training examples can be found in ./run.sh
+#### pure text
+```angular2html
+python3 main_text_alltrain.py 
+--exp-dir=YOUR_EXPERIMENT_PATH
+--num-epochs=25 
+--batch-size=16 
+--exp-mode=0 
+--data-mode=0 
+--lr=5e-6 
+--img-model=0 
+--text-model-name=microsoft/deberta-v3-large
+```
+
+#### pure image
+```angular2html
+python3 main_image_alltrain.py 
+--exp-dir=YOUR_EXPERIMENT_PATH
+--num-epochs=25 
+--batch-size=16 
+--exp-mode=0 
+--data-mode=1 
+--lr=1e-6 
+--img-model=0 
+--text-model-name=microsoft/deberta-v3-large
+```
+
+#### original multimodality
+```angular2html
+python3 main_multimodality_alltrain.py 
+--exp-dir=YOUR_EXPERIMENT_PATH
+--num-epochs=25 
+--batch-size=16 
+--exp-mode=0 
+--data-mode=2 
+--lr=1e-5 
+--img-model=1 
+--text-model-name=microsoft/deberta-v3-large 
+--use-pooler=0 
+--use-wordnet=1
+```
+
+#### pure layout
+```angular2html
+python3 main_layoutlmv3_alltrain.py 
+--data_dir=./data 
+--output_dir=YOUR_EXPERIMENT_PATH 
+--do_train 
+--do_eval 
+--do_predict 
+--model_name_or_path=microsoft/layoutlmv3-base 
+--visual_embed 
+--num_train_epochs=25 
+--input_size=224 
+--learning_rate=1e-5 
+--per_gpu_train_batch_size=8 
+--per_gpu_eval_batch_size=8 
+--seed=22 
+--gradient_accumulation_steps=1 
+--text_model_name_or_path=microsoft/deberta-v3-large
+```
+
+#### layout multimodality
+```angular2html
+python3 main_multimodality_layoutlmv3_alltrain.py 
+--data_dir=./data 
+--output_dir=/home/data/zwanggy/2023/image_arg_experiments 
+--do_train 
+--do_eval 
+--model_name_or_path=microsoft/layoutlmv3-base 
+--visual_embed 
+--num_train_epochs=25 
+--input_size=224 
+--learning_rate=1e-5 
+--per_gpu_train_batch_size=4 
+--per_gpu_eval_batch_size=4 
+--seed=22  
+--gradient_accumulation_steps=1 
+--text_model_name_or_path=microsoft/deberta-v3-large 
+--exp_mode=0  
+--use_wordnet=1 
+--use_pooler=0 
+--cross_attn_type=-1
+```
+
+## Step 2: Predict
+predict_test_origin_text.py is for pure text
+predict_test_origin_image.py is for pure image
+predict_test_origin_multi.py is for original multimodality
+predict_test_layout.py is for pure layout
+predict_test_layout_multi.py is for layout multimodality
+
+You should change the model name in the code to the one you want to predict with.
+Other parameters are consistent with the training part.
+
+## Step 3: Post Process
+
+You should change the file name in the code to the one you want to process.
+```angular2html
+python3 final_submission.py
+```
+
+## Step 4: Evaluate And Get The Score
+
+If you want to get the score across topic:
+```angular2html
+python3 get_evaluation.py
+-f=YOUR_FILE_PATH
+```
+
+If you want to get the score within topic:
+```angular2html
+python3 get_evaluation_within_topic.py
+-f=YOUR_FILE_PATH
+--topic=choose one in [gun_control, abortion]
+```
+
 #Others
 
-- code used to address data imbalance is in path ./data/TranslateDemo
+## Address Data Imbalance
+- code used to address data imbalance is in path ./data/TranslateDemo 
+- a stands for abortion, g stands for gun_control
+- s stands for stance, p stands for persuasiveness
+
+```angular2html
+cd data/TranslateDemo
+python3 TranslateDemo_a_s.py
+```
+
+## Data Augmentation
 - code used to do data augmentation is in path ./data/wordnet_augmentation
-- training examples can be found in ./run.sh
+
+```angular2html
+cd data/wordnet_augmentation
+python3 preprocess_glossbert_input.py
+python3 build_gloss_bert_input.py
+cd GlossBERT
+./run_WSD.sh
+cd ..
+python3 incorporate_score.py
+```

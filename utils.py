@@ -284,7 +284,7 @@ def get_exp_name_nofold_alltrain_wordnet(args, is_print=True):
 def get_argparser():
     parser = argparse.ArgumentParser(description='Persuasiveness')
     parser.add_argument('--data-dir', default='./data', help='path to data')
-    parser.add_argument('--exp-dir', default='./experiments/debug', help='path save experimental results')
+    parser.add_argument('--exp-dir', default='/home/data/zwanggy/2023/image_arg_experiments', help='path save experimental results')
     parser.add_argument('--exp-mode', default=0, choices=[0, 1], type=int, help='0: stance; 1: persuasive')
     parser.add_argument('--num-epochs', default=10, type=int, help='number of running epochs')
     parser.add_argument('--data-mode', default=2, choices=[0, 1, 2], type=int, help='0: text; 1: image; 2: image+text')
