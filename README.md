@@ -2,7 +2,7 @@
 
 This repository is the official implementation of TILFA: A Unified Framework for Text, Image, and Layout Fusion in Argument Mining.
 
-The paper is accepted to the workshop of EMNLP 2023.
+The paper is accepted to the Proceedings of the 10th Workshop on Argument Mining 2023.
 
 ## Abstract
 
