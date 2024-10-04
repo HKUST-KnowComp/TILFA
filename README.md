@@ -215,7 +215,7 @@ cd ..
 python3 incorporate_score.py
 ```
 
-### How to Cite
+## How to Cite
 ```
 @inproceedings{zong-etal-2023-tilfa,
     title = "{TILFA}: A Unified Framework for Text, Image, and Layout Fusion in Argument Mining",
@@ -228,11 +228,6 @@ python3 incorporate_score.py
       Song, Yangqiu  and
       Wong, Ginny  and
       See, Simon",
-    editor = "Alshomary, Milad  and
-      Chen, Chung-Chi  and
-      Muresan, Smaranda  and
-      Park, Joonsuk  and
-      Romberg, Julia",
     booktitle = "Proceedings of the 10th Workshop on Argument Mining",
     month = dec,
     year = "2023",
