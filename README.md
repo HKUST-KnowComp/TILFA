@@ -214,3 +214,32 @@ cd GlossBERT
 cd ..
 python3 incorporate_score.py
 ```
+
+### How to Cite
+```
+@inproceedings{zong-etal-2023-tilfa,
+    title = "{TILFA}: A Unified Framework for Text, Image, and Layout Fusion in Argument Mining",
+    author = "Zong, Qing  and
+      Wang, Zhaowei  and
+      Xu, Baixuan  and
+      Zheng, Tianshi  and
+      Shi, Haochen  and
+      Wang, Weiqi  and
+      Song, Yangqiu  and
+      Wong, Ginny  and
+      See, Simon",
+    editor = "Alshomary, Milad  and
+      Chen, Chung-Chi  and
+      Muresan, Smaranda  and
+      Park, Joonsuk  and
+      Romberg, Julia",
+    booktitle = "Proceedings of the 10th Workshop on Argument Mining",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.argmining-1.14",
+    doi = "10.18653/v1/2023.argmining-1.14",
+    pages = "139--147",
+}
+```
